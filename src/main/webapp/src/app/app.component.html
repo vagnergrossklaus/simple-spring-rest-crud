@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Crud Person</h1>
+
+  <table class="table table-sm table-striped table-hover table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of persons" (click)="onSelect(p)">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-sm btn-success" (click)="onNewPerson()">Adicionar</button>
+
+  <form *ngIf="person">
+
+    <div class="form-group">
+      <label for="id">Identifier</label>
+      <input [(ngModel)]="person.id" class="form-control" type="text" class="form-control" id="id" name="id" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)]="person.name" class="form-control" type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <button type="submit" class="btn btn-success" (click)="save()">Submit</button>
+
+  </form>
+
+</div>
