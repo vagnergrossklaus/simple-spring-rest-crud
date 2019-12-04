@@ -39,8 +39,8 @@ export class AppComponent implements OnInit {
   save(): void {
     this.addPerson(this.person)
       .subscribe(person => {
-        this.persons.push(person);
         this.person = undefined;
+        this.getPersons().subscribe(persons => this.persons = persons);
       });
   }
 
